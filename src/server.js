@@ -6,18 +6,15 @@ process.on('unhandledRejection', reason => {
 });
 
 const mongoose = require('mongoose');
-const { PORT } = require('./common/config');
+const { PORT, MONGO_CONNECTION_STRING } = require('./common/config');
 const app = require('./app');
 
-mongoose.connect(
-  'mongodb+srv://aleks:11041996God@cluster0.vsa9jos.mongodb.net/?',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-  }
-);
+mongoose.connect(MONGO_CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
 
 const db = mongoose.connection;
 

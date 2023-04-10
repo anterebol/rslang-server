@@ -19,6 +19,7 @@ router.route('/').get(async (req, res) => {
     page,
     group
   });
+  console.log(words);
   res.status(OK).send(words.map(word => word.toResponse()));
 });
 
